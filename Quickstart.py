@@ -17,6 +17,7 @@ predictions = model(x_train[:1]).numpy()                    # look at the first 
 
 tf.nn.softmax(predictions).numpy()                          # run predictions through a SoftMax layer
 
+# define a loss function
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 loss_fn(y_train[:1], predictions).numpy()
 
