@@ -21,12 +21,15 @@ tf.nn.softmax(predictions).numpy()                          # run predictions th
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 loss_fn(y_train[:1], predictions).numpy()
 
+# compile the model
 model.compile(optimizer='adam',
               loss=loss_fn,
               metrics=['accuracy'])
 
+# fit the model to the training data
 model.fit(x_train, y_train, epochs=5)
 
+# evaluate the performance of the model
 model.evaluate(x_test, y_test, verbose=2)
 
 probability_model = tf.keras.Sequential([
